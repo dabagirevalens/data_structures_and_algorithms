@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-
+// => time complexity of O(N)
 int linear_search( int * arr, int n, int key){
 
     for(int i=0; i< n; i++){
