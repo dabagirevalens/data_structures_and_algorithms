@@ -62,6 +62,26 @@ int usingPrefixSum( int * arr, int n){
     return largest_sum;
 }
 
+//Using kadane's algorithm
+// => time complexity of O(N)
+
+int max_subarray_sum(int *arr, int n){
+    int current_sum = 0;
+    int largest_sum = 0;
+
+    for(int i =0; i<n; i++){
+        current_sum += arr[i];
+
+        if(current_sum < 0)
+            current_sum = 0;
+        
+        largest_sum = max(current_sum, largest_sum);
+
+    }
+
+    return largest_sum;
+}
+
 int main () {
 
     int arr[] = {-2, 3, 4, -1, 5, -12, 6, 1, 3};
@@ -71,6 +91,8 @@ int main () {
 
     int largestSum = largestSubArraySum(arr, n);
     cout << "The largest sum of sub array is : " << largestSum << endl;
+
+    cout << max_subarray_sum(arr, n) << endl;
 
     return 0;
 }
