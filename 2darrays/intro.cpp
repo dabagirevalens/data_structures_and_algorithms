@@ -18,7 +18,7 @@ int main() {
 
 	cout << "Enter number of rows and columns : "<<endl;
 	int n, m;
-	cin >> n>> m;
+	cin >> n >> m;
 	
 	// take inputs
 	
