@@ -8,9 +8,9 @@ int main() {
     // Address-of operator '&'
 
     int x=10;
-    cout << &x;
+    cout << &x << endl;
     
-    float y=5.5 << endl;
+    float y=5.5;
     cout << &y << endl;
 
     // DEMO fro pointers
@@ -25,8 +25,21 @@ int main() {
     cout << xxptr << endl;
 
     // Dereference operator '*'
-    
+
+    cout << *xxptr << endl;
+
+    // NULL Pointer
+    int *p = 0;
+    int *q = NULL;
+
+    // Reference variables
+    // ⚠ they must be initialized;
+    int my_num = 10;
+    int &another = my_num;
+    // int &another; <- this cannot work
+    another++;
+    cout << another << endl;
+    cout << my_num << endl; //its value is equal to another's value
 
 	return 0;
 }
-
