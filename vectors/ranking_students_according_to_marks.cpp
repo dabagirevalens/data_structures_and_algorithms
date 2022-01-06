@@ -37,6 +37,7 @@ int main() {
 
     for(auto s: students_marks){
         cout << pos <<". " << s.first << " : " << calcTotalMarks(s.second) << endl;
+        pos++;
     }
 
 	return 0;
