@@ -23,6 +23,19 @@ void updateIthBit(int &n, int i, int v){
     n = (n|mask);
 }
 
+void clearLatIthBit(int &n, int i){
+    int mask = (-1<<i);
+    n = (n&mask);
+}
+
+void clearBitInRange(int &n, int i, int j){
+    int a = (~0) << (j+1);
+    int b = (1<<i) - 1;
+    int mask = a|b;
+
+    n = n&mask;
+}
+
 int main() {
 
     // find bit at given position
@@ -52,6 +65,12 @@ int main() {
 	cin >> num >> pos >> val;
     updateIthBit(num, pos, val);
     cout << "After update <"<< getIthBit(num, pos) << " to " <<val << "> the num became " << num << endl; 
+
+    // clear the last bits : 
+    cout << clearLastIthBit(5, 2) << endl;
+
+    // clear the range of bits
+    cout << clearBitInRange(31, 1, 3) << endl;
 
 	return 0;
 }
