@@ -3,11 +3,7 @@ using namespace std;
 
 pair<int*, int> common_elements(int* first,  int* last, int sf, int ss){
 
-    if(sf==0 | ss == 0){
-        return {NULL, 0};
-    }
-
-    if(!first | !last){
+    if(sf==0 | ss == 0 | !first | !last){
         return {NULL, 0};
     }
 
