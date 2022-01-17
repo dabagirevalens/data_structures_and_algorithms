@@ -21,8 +21,17 @@ pair<int*, int> common_elements(int* first,  int* last, int sf, int ss){
     int* auxArray  = new int[minVal];
     int x = 0;
 
-    for(int i = 0; i< sf; i++){
-        for(int j = 0; j< ss; j++){
+    int ls, sm;
+    if(sf>ss){
+        ls = sf;
+        sm = ss;
+    }else{
+        ls = ss;
+        sm = sf;
+    }
+
+    for(int i = 0; i< sm; i++){
+        for(int j = 0; j< ls; j++){
             if(auxFirst[i] == auxLast[j]){
                 auxArray[x] = auxFirst[i];
                 x++;
