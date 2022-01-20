@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-pair<int*, int> common_elements(int* first,  int* last, int sf, int ss){
+pair<int*, int> common_elements(int first[],  int last[], int sf, int ss){
 
     if(sf==0 | ss == 0 | !first | !last){
         return {NULL, 0};
@@ -50,8 +50,8 @@ pair<int*, int> common_elements(int* first,  int* last, int sf, int ss){
 
 int main(){
 
-    int a[] = {1, 3, 2, 4, 8, 5};
-    int b[] = {4, 2, 6, 1, 5, 4};
+    int a[] = {1, 8, 3, 2};
+    int b[] = {4, 2, 6, 1};
 
     int sf = sizeof (a)/ sizeof (a[0]);
     int ss =  sizeof (b)/ sizeof (b[0]);

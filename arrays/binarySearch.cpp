@@ -13,7 +13,7 @@ int binary_search( int * arr, int n, int key){
 
         if(arr[mid] == key) {
             return mid;
-        } else if(mid > key){
+        } else if(arr[mid] > key){
             end = mid - 1;
         } else {
             start = mid + 1 ;
@@ -34,8 +34,13 @@ int main () {
     cin>> key;
 
     int index = binary_search(arr, n, key);
-    if(index !=-1)
+    if(index !=-1){
         cout << key << " is found at index " << index << endl;
+    }else{
+        cout << "not found" <<endl;
+    }
+
+        
 
     return 0;
 }
