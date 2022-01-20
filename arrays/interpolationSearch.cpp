@@ -27,6 +27,31 @@ int interpolationSearch(int arr[], int lo, int hi, int x)
     }
     return -1;
 }
+
+// => time complexity of O(log2 N)
+int interpolation_search( int * arr, int n, int key){
+
+    int start = 0;
+    int end = n-1;
+    int pos;
+
+    while(start <= end) {
+        pos = start + (((double)(end - start) / (arr[end] - arr[start]))* (key - arr[start]));
+
+        cout<< pos << endl;
+
+        if(arr[pos] == key) {
+            return pos;
+        } else if(arr[pos] > key){
+            end = pos - 1;
+        } else {
+            start = pos + 1 ;
+        }
+
+    }
+
+    return -1;
+}
  
 // Driver Code
 int main()
@@ -41,7 +66,7 @@ int main()
  
     // Element to be searched
     int x = 18;
-    int index = interpolationSearch(arr, 0, n - 1, x);
+    int index = interpolation_search(arr,  n, x);
  
     // If element was found
     if (index != -1)
