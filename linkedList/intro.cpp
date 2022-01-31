@@ -40,27 +40,98 @@ class linkedList {
 
     void insert(int position, int data) {
 
-       if(position == 0){
-               if(head == NULL){
-                       head = new Node(data);
-               }else{
-                       Node* n = new Node(data);
-                       n->next = head;
-                       head = n;
-               }
+        if (position == 0) {
+            if (head == NULL) {
+                head = new Node(data);
+            } else {
+                Node * n = new Node(data);
+                n -> next = head;
+                head = n;
+            }
 
-               return;
-       }
+            return;
+        }
 
-       Node* temp = head;
-       for(int i =1; i<=position-1; i++){
-               temp = temp -> next;
-       }
+        int s;
+        Node * node;
+        while (node != NULL) {
+            s++;
+            node = node -> next;
+        }
 
-       Node* n = new Node(data);
-       n->next = temp ->next;
-       temp ->next = n;
+        if (position > s) {
+            cout << "position larger than num of nodes" << endl;
+            return;
+        } else {
 
+            Node * temp = head;
+            for (int i = 1; i <= position - 1; i++) {
+                temp = temp -> next;
+            }
+
+            Node * n = new Node(data);
+            n -> next = temp -> next;
+            temp -> next = n;
+        }
+
+    }
+
+    bool search(int key) {
+        Node * temp = head;
+        int i = 1;
+
+        while (temp != NULL) {
+            if (head -> data == key) {
+                return i;
+            }
+            temp = temp -> next;
+            i++;
+        }
+        return -1;
+    }
+
+    bool searchRec(Node * head, int key) {
+        if (head == NULL) {
+            return false;
+        }
+
+        if (head -> data == key) {
+            return true;
+        } else {
+            return searchRec(head -> next, key);
+        }
+    }
+
+    int findPos(int pos) {
+        if (head == NULL) {
+            cout << "invalid operation." << endl;
+            return -1;
+        }
+
+        int s;
+        Node * node;
+        while (node != NULL) {
+            s++;
+            node = node -> next;
+        }
+
+        if (pos > s) {
+            cout << "position larger than num of nodes" << endl;
+            return -1;
+        }
+
+        s = 0;
+        node = head;
+        while (node != NULL) {
+            s++;
+            if (s == pos) {
+                return node -> data;
+            }
+
+            node = node -> next;
+        }
+
+        return -1;
     }
 
     Node * headNode() {
@@ -86,15 +157,28 @@ int main() {
     while (n--) {
         myList.addNewNode(n);
     }
+    cout << endl;
+    cout << endl;
 
+    cout << "------------------------ print ------------------------ " << endl;
     cout << "Before insert : " << endl;
     printList(myList.headNode());
     cout << endl;
+    cout << endl;
 
+    cout << "------------------------ insert ------------------------ " << endl;
     myList.insert(3, 2);
     cout << "After insert : " << endl;
 
     printList(myList.headNode());
+    cout << endl;
+    cout << endl;
+
+    cout << "------------------------ search ------------------------ " << endl;
+    cout << myList.search(3)<< endl;
+    cout << myList.searchRec(myList.headNode(), 10) << endl;
+    cout << myList.findPos(0) << endl;
+    cout << endl;
 
     return 0;
 }
