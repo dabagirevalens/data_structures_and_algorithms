@@ -10,7 +10,7 @@ int count_bits(int n){
         int last_bit = (n&1);
         count += last_bit;
 
-        n>>1;
+        n = (n>>1);
     }
 
     return count;
