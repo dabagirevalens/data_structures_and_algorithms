@@ -29,7 +29,7 @@ bool Stack::push(int x){
     }
 }
 
-int pop(){
+int Stack::pop(){
     if(top < 0){
         cout << "Stack Underflow";
         return 0;
