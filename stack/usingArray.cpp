@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define MAX 1000;
+#define MAX 1000
 
 class Stack{
     int top;
@@ -9,14 +9,14 @@ class Stack{
     public :
         int a[MAX];
 
-        Stack() top = -1;
+        Stack() {top = -1;};
 
         bool push(int x);
         int pop();
         int peek();
         bool isEmpty();
         void display();
-}
+};
 
 bool Stack::push(int x){
     if(top >= MAX -1){
@@ -56,4 +56,19 @@ int Stack::peek()
 bool Stack::isEmpty()
 {
     return (top < 0);
+}
+
+int main(){
+
+    Stack myStack;
+
+    int n =5;
+    while(n--){
+        myStack.push(n);
+    }
+
+    cout << myStack.pop() <<endl;
+    cout << myStack.peek() <<endl;
+
+    return 0;
 }
