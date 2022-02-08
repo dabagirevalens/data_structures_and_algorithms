@@ -51,7 +51,7 @@ class Stack{
             Node<T> *temp = head;
 
             while(temp!=NULL){
-                cout << temp->data << "";
+                cout << temp->data << endl;
                 temp = temp->next;
             }
         }
