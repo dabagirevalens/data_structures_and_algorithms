@@ -17,6 +17,8 @@ int main(){
     ages.push(22);
     ages.push(32);
     ages.push(42);
+    ages.insertAtBottom(02);
+    ages.reverse();
     ages.display();
 
     ages.pop();
