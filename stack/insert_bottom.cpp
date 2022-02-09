@@ -16,6 +16,19 @@ void insertAtBottom(Stack<int> &s, int data){
     s.push(temp);
 }
 
+void reverse(Stack<int> &s){
+    if(s.isEmpty()){
+        return;
+    }
+
+    int top = s.peek();
+    s.pop();
+
+    reverse(s);
+    insertAtBottom(s, top);
+
+}
+
 int main(){
 
     Stack<int> s;
@@ -27,6 +40,8 @@ int main(){
 
     // s.display(); 
     insertAtBottom(s, 5);
+    s.display(); 
+    reverse(s);
     s.display(); 
 
     return 0;
