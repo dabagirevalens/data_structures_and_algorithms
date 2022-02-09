@@ -51,9 +51,36 @@ class Stack{
             Node<T> *temp = head;
 
             while(temp!=NULL){
-                cout << temp->data << endl;
+                cout << temp->data << " ";
                 temp = temp->next;
             }
+
+            cout << endl;
+        }
+
+        void insertAtBottom(T data){
+            if(isEmpty()){
+                push(data);
+                return;
+            }
+
+            T temp = peek();
+            pop();
+
+            insertAtBottom(data);
+            push(temp);
+        }
+
+        void reverse(){
+            if(isEmpty()){
+                return;
+            }
+
+            T temp = peek();
+            pop();
+
+            reverse();
+            insertAtBottom(temp);
         }
 
 };
