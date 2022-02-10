@@ -62,6 +62,15 @@ struct Queue{
 
         return queue[front];
     }
+
+    void rearEle(){
+        if(front == rear){
+            cout << "queue is empty" << endl;
+            return;
+        }
+
+        cout << queue[rear] <<endl;
+    }
 };
 
 int main(){
@@ -92,6 +101,8 @@ int main(){
 
     // frontEle element
     cout << "Front element :"<< myQueue.frontEle() << endl;
+    cout << "Last element :";
+    myQueue.rearEle();
 
     return 0;
 }
