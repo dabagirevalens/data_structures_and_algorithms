@@ -10,10 +10,10 @@ class Node {
         Node() {
             this -> next = NULL;
         }
-    Node(int data) {
-        this -> data = data;
-        this -> next = NULL;
-    }
+        Node(int data) {
+            this -> data = data;
+            this -> next = NULL;
+        }
 };
 class linkedList {
     public:
@@ -76,12 +76,12 @@ class linkedList {
 
     }
 
-    bool search(int key) {
+    int search(int key) {
         Node * temp = head;
         int i = 1;
 
         while (temp != NULL) {
-            if (head -> data == key) {
+            if (temp -> data == key) {
                 return i;
             }
             temp = temp -> next;
