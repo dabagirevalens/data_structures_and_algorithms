@@ -24,6 +24,9 @@ public :
     void  insertrear(int key);
     void  deletefront();
     void  deleterear();
+    void displayFront();
+    void displayRear();
+    void display();
     bool  isFull();
     bool  isEmpty();
     int  getFront();
@@ -98,6 +101,56 @@ void Deque ::insertrear(int key)
 
     // insert current element into Deque
     arr[rear] = key ;
+}
+
+void  Deque::displayFront() {
+    if(isEmpty()){
+        cout << "Underflow " << endl;
+    }
+
+    if(front == rear){
+        cout << arr[front];
+    }else{
+        cout << arr[0] << endl;
+        for(int i=size-1; i>=front; i--){
+            cout << arr[i] <<endl;
+        }
+    }
+}
+
+void Deque::displayRear() {
+    if(isEmpty()){
+        cout << "Underflow " << endl;
+    }
+
+    if(front == rear){
+        cout << arr[rear];
+    }else{
+        for(int i=0; i<=rear; i++){
+            cout << arr[i] <<endl;
+        }
+    }
+}
+
+void Deque::display(){
+    if(isEmpty()){
+        cout << "Underflow" << endl;
+        return;
+    }
+    
+    if(front>rear){
+        for (int i = front; i <= size-1; i++) {
+            cout << arr[i] << endl;
+        }
+        
+        for (int j = 0; j < rear; j++) {
+            cout << arr[j] << endl;
+        }
+    }else{
+        for (int k = front; k <= rear-1; k++) {
+            cout << arr[k] << endl;
+        }
+    }
 }
 
 // Deletes element at front end of Deque
@@ -175,28 +228,17 @@ int Deque::getRear()
 int main()
 {
     Deque dq(5);
-    cout << "Insert element at rear end  : 5 \n";
-    dq.insertrear(5);
-
-    cout << "insert element at rear end : 10 \n";
-    dq.insertrear(10);
-
-    cout << "get rear element " << " "
-         << dq.getRear() << endl;
-
-    dq.deleterear();
-    cout << "After delete rear element new rear"
-         << " become " << dq.getRear() << endl;
-
-    cout << "inserting element at front end \n";
-    dq.insertfront(15);
-
-    cout << "get front element " << " "
-         << dq.getFront() << endl;
-
-    dq.deletefront();
-
-    cout << "After delete front element new "
-         << "front become " << dq.getFront() << endl;
+    cout << "insert at front" << endl;
+    dq.insertfront(1);
+    dq.displayFront();
+//    cout << "insert at rear" << endl;
+//    dq.insertrear(2);
+//    dq.displayFront();
+    cout << "insert at front" << endl;
+    dq.insertfront(3);
+    dq.displayFront();
+//    cout << "insert at rear" << endl;
+//    dq.insertrear(4 );
+//    dq.displayFront();
     return 0;
 }
